@@ -24,9 +24,13 @@
   /* ---------- Sticky header shadow ---------- */
   var header = document.getElementById("header");
   var toTop = document.getElementById("toTop");
+  var heroEl = document.querySelector(".hero");
   function onScroll() {
     var y = window.scrollY || window.pageYOffset;
-    if (header) header.classList.toggle("scrolled", y > 20);
+    // Keep the header transparent over the dark hero, solidify once past it.
+    var headerH = header ? header.offsetHeight : 70;
+    var solidAt = heroEl ? Math.max(60, heroEl.offsetHeight - headerH - 40) : 24;
+    if (header) header.classList.toggle("scrolled", y > solidAt);
     if (toTop) toTop.classList.toggle("show", y > 600);
   }
   window.addEventListener("scroll", onScroll, { passive: true });
