@@ -13,11 +13,12 @@ Premium-Branding, klare CTAs).
 
 | Element        | Wert                                                        |
 |----------------|-------------------------------------------------------------|
-| Primärfarbe    | Cyan `#00cfe8`                                              |
-| Akzentfarbe    | Gelb `#f6d200`                                             |
-| Dunkel / Verlauf | Navy `#05223a` → Blau `#0b3a61` → Cyan (Blue-Gradient)   |
-| Schrift (Fließtext) | Open Sans                                             |
-| Schrift (Headlines) | Poppins                                               |
+| Primärfarbe (Cyan) | `#00CFE8` (Elementor `--e-global-color-0868745`)         |
+| Brand-Verlauf  | `linear-gradient(137deg, #168BC8 0%, #00CFE8 100%)`         |
+| Akzentfarbe    | Orange `#F26A2C`                                           |
+| Hellblau       | `#6BC7FF`                                                  |
+| Dunkel / Verlauf | Navy `#072a44` → Blau `#10679b` → Cyan `#00BFD8`         |
+| Schrift        | Montserrat                                                 |
 
 Sektionen wechseln bewusst zwischen **Weiß → Blau-Verlauf → Weiß**, wie gewünscht.
 

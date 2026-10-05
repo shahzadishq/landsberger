@@ -1,25 +1,26 @@
 /* =====================================================================
    Landsberger Medienagentur — Website
    Design system & styles
-   Brand: cyan #00cfe8 (primary) + yellow #f6d200 (accent)
-   Fonts: Poppins (display/headings) + Open Sans (body)
+   Brand: brand gradient #168BC8 -> #00CFE8, orange accent #F26A2C
+   Font: Montserrat
    ===================================================================== */
 
 /* ---------- Design tokens ---------- */
 :root {
-  /* Brand */
-  --brand:        #00cfe8;   /* primary cyan from current site */
-  --brand-600:    #00b4d8;
-  --brand-700:    #0098bf;
-  --brand-light:  #e7fbff;
-  --accent:       #f6d200;   /* yellow accent from current site */
-  --accent-600:   #e4c200;
+  /* Brand — from Elementor global palette of the existing site */
+  --brand:        #00CFE8;   /* primary cyan  (--e-global-color-0868745) */
+  --brand-600:    #00BFD8;   /* cyan variant  (--e-global-color-05574a6) */
+  --brand-700:    #168BC8;   /* deep brand blue (gradient start) */
+  --brand-light:  #e4faff;
+  --brand-sky:    #6BC7FF;   /* light blue    (--e-global-color-b4a0984) */
+  --accent:       #F26A2C;   /* brand orange  (--e-global-color-bb890b8) */
+  --accent-600:   #d9551c;
 
   /* Blues / navy for gradient sections */
-  --navy-900: #05223a;
-  --navy-800: #082e4d;
-  --navy-700: #0b3a61;
-  --blue-500: #1178c9;
+  --navy-900: #072a44;
+  --navy-800: #0c4a76;
+  --navy-700: #10679b;
+  --blue-500: #168BC8;
 
   /* Neutrals */
   --ink:        #0d1b26;
@@ -43,12 +44,12 @@
   --gutter: clamp(18px, 5vw, 48px);
 
   /* Gradients */
-  --grad-brand: linear-gradient(135deg, #00cfe8 0%, #0098bf 100%);
-  --grad-navy:  linear-gradient(160deg, #05223a 0%, #0b3a61 48%, #0098bf 120%);
+  --grad-brand: linear-gradient(137deg, #168BC8 0%, #00CFE8 100%); /* official brand gradient */
+  --grad-navy:  linear-gradient(160deg, #072a44 0%, #10679b 52%, #00BFD8 120%);
   --grad-soft:  linear-gradient(180deg, #ffffff 0%, #eef7fb 100%);
 
-  --font-display: "Poppins", "Open Sans", system-ui, sans-serif;
-  --font-body: "Open Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 /* ---------- Reset ---------- */
@@ -59,8 +60,9 @@ body {
   font-family: var(--font-body);
   color: var(--ink);
   background: var(--white);
-  line-height: 1.65;
+  line-height: 1.62;
   font-size: 17px;
+  letter-spacing: -.005em;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
@@ -114,7 +116,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; font-weigh
 .highlight { color: var(--brand-700); position: relative; white-space: nowrap; }
 .bg-navy .highlight { color: #4fe0f4; }
 .highlight--ink { font-style: italic; }
-.underline-accent { background: linear-gradient(transparent 62%, rgba(246,210,0,.55) 0); padding: 0 2px; }
+.underline-accent { background: linear-gradient(transparent 62%, rgba(242,106,44,.42) 0); padding: 0 2px; }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -195,7 +197,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; font-weigh
 }
 .hero::after {
   content: ""; position: absolute; bottom: -220px; left: -140px; width: 540px; height: 540px;
-  background: radial-gradient(closest-side, rgba(246,210,0,.16), transparent 70%); z-index: 0;
+  background: radial-gradient(closest-side, rgba(107,199,255,.28), transparent 70%); z-index: 0;
 }
 .hero .container { position: relative; z-index: 1; }
 .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: clamp(32px, 5vw, 64px); align-items: center; }
@@ -322,7 +324,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; font-weigh
 .work-tg-1 { background: linear-gradient(135deg,#0b3a61,#00cfe8); }
 .work-tg-2 { background: linear-gradient(135deg,#7a4bd6,#00cfe8); }
 .work-tg-3 { background: linear-gradient(135deg,#0d7a5f,#5bd6a8); }
-.work-tg-4 { background: linear-gradient(135deg,#c0392b,#f6d200); }
+.work-tg-4 { background: linear-gradient(135deg,#d9551c,#F6A02C); }
 .work-tg-5 { background: linear-gradient(135deg,#05223a,#1178c9); }
 .work-tg-6 { background: linear-gradient(135deg,#d6337a,#ff9a5a); }
 .work-meta { padding: 20px 22px; }
