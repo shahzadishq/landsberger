@@ -11,15 +11,6 @@
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- Smooth inertia scrolling (Lenis) ---------- */
-  var lenis = null;
-  if (!prefersReduced && typeof window.Lenis === "function") {
-    try {
-      lenis = new window.Lenis({ duration: 1.1, smoothWheel: true, wheelMultiplier: 1, touchMultiplier: 1.4 });
-      var rafLoop = function (time) { lenis.raf(time); requestAnimationFrame(rafLoop); };
-      requestAnimationFrame(rafLoop);
-    } catch (e) { lenis = null; }
-  }
 
   /* ---------- Sticky header shadow ---------- */
   var header = document.getElementById("header");
@@ -219,12 +210,8 @@
       if (!target) return;
       e.preventDefault();
       var headerH = header ? header.offsetHeight : 0;
-      if (lenis) {
-        lenis.scrollTo(target, { offset: -(headerH + 12) });
-      } else {
-        var top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 12;
-        window.scrollTo({ top: top, behavior: prefersReduced ? "auto" : "smooth" });
-      }
+      var top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 12;
+      window.scrollTo({ top: top, behavior: prefersReduced ? "auto" : "smooth" });
     });
   });
 })();
