@@ -15,13 +15,11 @@
   /* ---------- Sticky header shadow ---------- */
   var header = document.getElementById("header");
   var toTop = document.getElementById("toTop");
-  var heroEl = document.querySelector(".hero");
   function onScroll() {
     var y = window.scrollY || window.pageYOffset;
-    // Keep the header transparent over the dark hero, solidify once past it.
-    var headerH = header ? header.offsetHeight : 70;
-    var solidAt = heroEl ? Math.max(60, heroEl.offsetHeight - headerH - 40) : 24;
-    if (header) header.classList.toggle("scrolled", y > solidAt);
+    // Solidify the header as soon as the user starts scrolling, so the nav
+    // never overlaps the hero text without a background behind it.
+    if (header) header.classList.toggle("scrolled", y > 24);
     if (toTop) toTop.classList.toggle("show", y > 600);
   }
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -93,6 +91,28 @@
       if (s) s.textContent = el.getAttribute("data-count");
     });
   }
+
+  /* ---------- Method rail scroll progress ---------- */
+  (function () {
+    var flow = document.querySelector(".method-flow");
+    var fill = document.getElementById("railFill");
+    if (!flow || !fill) return;
+    var nodes = flow.querySelectorAll(".rail-node");
+    function update() {
+      var r = flow.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      var p = (vh * 0.5 - r.top) / r.height;
+      if (p < 0) p = 0; else if (p > 1) p = 1;
+      fill.style.height = (p * 100) + "%";
+      nodes.forEach(function (n, i) {
+        var threshold = nodes.length > 1 ? i / (nodes.length - 1) : 0;
+        n.classList.toggle("active", p >= threshold - 0.08);
+      });
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  })();
 
   /* ---------- FAQ accordion ---------- */
   document.querySelectorAll(".faq-item").forEach(function (item) {
