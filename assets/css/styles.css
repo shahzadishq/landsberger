@@ -45,6 +45,7 @@
 
   /* Gradients */
   --grad-brand: linear-gradient(137deg, #168BC8 0%, #00CFE8 100%); /* official brand gradient */
+  --grad-blue:  linear-gradient(160deg, #0f7ab8 0%, #1aa0cb 52%, #00c4e2 115%); /* section blue (button family) */
   --grad-navy:  linear-gradient(155deg, #0a3b61 0%, #1479c0 50%, #00BFD8 115%);
   --grad-soft:  linear-gradient(180deg, #ffffff 0%, #eef7fb 100%);
 
@@ -95,6 +96,23 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; font-weigh
 .bg-navy::after  { width: 360px; height: 360px; background: #1178c9; bottom: -120px; left: -100px; opacity: .22; }
 .bg-navy > .container { position: relative; z-index: 1; }
 
+/* Blue sections (same family as the button) with a slowly shifting gradient.
+   Text overrides are scoped to elements that sit directly ON the gradient
+   (section headers, stats) so headings inside white cards stay dark. */
+.bg-blue { background: var(--grad-blue); background-size: 180% 180%; animation: bgshift 16s ease-in-out infinite; color: #eaf9ff; }
+.bg-blue .section-head h2, .bg-blue .section-head h3 { color: #fff; }
+.bg-blue .section-head p { color: rgba(255,255,255,.88); }
+.bg-blue .section-head .eyebrow { color: #fff; background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.34); }
+.bg-blue .section-head .eyebrow .dot { background: #fff; box-shadow: 0 0 0 4px rgba(255,255,255,.28); }
+.bg-blue .section-head .highlight { color: #d4f5ff; }
+.bg-blue .subhead-mini { color: #fff; }
+.bg-blue .subhead-mini .pill { background: rgba(255,255,255,.18); color: #fff; }
+.bg-blue .stat .num { color: #fff; }
+.bg-blue .stat .num .suffix { color: #ffe0cb; }
+.bg-blue .stat p { color: rgba(255,255,255,.88); }
+.bg-blue .tarrow { background: #fff; }
+@keyframes bgshift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
 /* ---------- Typography blocks ---------- */
 .eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
@@ -122,7 +140,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; font-weigh
 .btn {
   position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   padding: 15px 28px; border-radius: 999px; font-family: var(--font-display);
-  font-weight: 600; font-size: 1rem; letter-spacing: .01em;
+  font-weight: 600; font-size: 14px; line-height: 14px; letter-spacing: .01em;
   transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s, background .25s;
   overflow: hidden; white-space: nowrap; isolation: isolate;
 }
@@ -152,7 +170,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; font-weigh
 .btn--light { background: #fff; color: var(--navy-800); box-shadow: var(--shadow-sm); }
 .btn--light:hover { box-shadow: var(--shadow); }
 
-.btn--lg { padding: 18px 36px; font-size: 1.08rem; }
+.btn--lg { padding: 17px 34px; font-size: 14px; line-height: 14px; }
 .btn--block { width: 100%; }
 
 .btn-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
@@ -351,7 +369,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; font-weigh
 .tcard-lg blockquote { font-size: clamp(1.1rem,2.2vw,1.5rem); font-family: var(--font-display); font-weight: 500; color: var(--ink); line-height: 1.4; }
 .tcard-lg .who { margin-top: 20px; display:flex; align-items:center; gap:14px; }
 .avatar { width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; color:#fff; flex:none; }
-.who b { font-family: var(--font-display); display:block; }
+.who b { font-family: var(--font-display); display:block; color: var(--ink); }
 .who small { color: var(--muted); }
 .tslide-media { display:grid; place-items:center; }
 .tslider-nav { display:flex; justify-content:center; gap:10px; margin-top:26px; align-items:center; }
@@ -421,7 +439,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; font-weigh
 .step-c p { color:#a9c6dc; font-size:.94rem; }
 .cta-panel { display:grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px,5vw,56px); align-items:center; }
 .cta-form { background:#fff; border-radius: var(--radius-lg); padding: clamp(26px,4vw,40px); box-shadow: var(--shadow-lg); color: var(--ink); }
-.cta-form h3 { font-size:1.4rem; margin-bottom: 6px; }
+.cta-form h3 { font-size:1.4rem; margin-bottom: 6px; color: var(--ink); }
 .cta-form p.sub { color: var(--muted); font-size:.95rem; margin-bottom: 22px; }
 .field { margin-bottom: 15px; }
 .field label { display:block; font-weight:600; font-size:.88rem; margin-bottom:7px; color: var(--ink-soft); }
@@ -502,7 +520,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; font-weigh
 .nerve .zero { font-family:var(--font-display);font-weight:800;font-style:italic;color:var(--brand-700);font-size:.95rem; }
 
 /* ---------- Guarantee seal ---------- */
-.guarantee { display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,5vw,56px);align-items:center;background:var(--grad-soft);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(30px,5vw,56px);box-shadow:var(--shadow); }
+.guarantee { display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,5vw,56px);align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(30px,5vw,56px);box-shadow:var(--shadow-lg); }
 .seal { width:clamp(150px,20vw,210px);height:clamp(150px,20vw,210px);flex:none; }
 .seal-ring { animation: spin 20s linear infinite; transform-origin:100px 100px; }
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -514,7 +532,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; font-weigh
 .guarantee-points li { display:flex;gap:14px;align-items:flex-start; }
 .guarantee-points .gp-ic { flex:none;width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:var(--brand-light);color:var(--brand-700); }
 .guarantee-points .gp-ic svg{ width:20px;height:20px; }
-.guarantee-points b { font-family:var(--font-display);display:block;font-size:1.02rem; }
+.guarantee-points b { font-family:var(--font-display);display:block;font-size:1.02rem;color:var(--ink); }
 .guarantee-points span { color:var(--muted);font-size:.92rem; }
 
 /* ---------- Trust badges row ---------- */
@@ -523,8 +541,19 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; font-weigh
 .trust-badge:hover{ transform:translateY(-4px);box-shadow:var(--shadow-sm); }
 .trust-badge .tb-ic { width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin:0 auto 12px;background:var(--brand-light);color:var(--brand-700); }
 .trust-badge .tb-ic svg{ width:22px;height:22px; }
-.trust-badge b { font-family:var(--font-display);font-size:.92rem;display:block;line-height:1.3; }
+.trust-badge b { font-family:var(--font-display);font-size:.92rem;display:block;line-height:1.3;color:var(--ink); }
 .trust-badge span { color:var(--muted);font-size:.78rem;display:block;margin-top:4px; }
+
+/* ---------- Testimonial marquee (auto-scroll, full width) ---------- */
+.marquee { width: 100vw; max-width: 100vw; margin-left: calc(50% - 50vw); display: flex; flex-direction: column; gap: 20px; overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
+.marquee-row { overflow: hidden; }
+.marquee-track { display: flex; gap: 20px; width: max-content; animation: marquee 46s linear infinite; will-change: transform; }
+.marquee-track.reverse { animation-direction: reverse; animation-duration: 54s; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee .tcard { width: 350px; flex: none; margin: 4px 0; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ---------- About photo (real image) ---------- */
 .about-photo-img { border-radius: var(--radius-lg); aspect-ratio: 4/5; object-fit: cover; width:100%; box-shadow: var(--shadow-lg); display:block; }
@@ -564,6 +593,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; font-weigh
 @media (max-width: 620px) {
   .method-grid, .service-grid, .work-grid, .tgrid, .bonus-grid, .steps-3, .field-row { grid-template-columns: 1fr; }
   .trust-badges { grid-template-columns: repeat(2, 1fr); }
+  .marquee .tcard { width: 278px; }
   body { font-size: 16px; }
   .hero-badge.tl { left: 6px; } .hero-badge.br { right: 6px; }
   .brand-logo, .site-header.scrolled .brand-logo { height: 30px; }
