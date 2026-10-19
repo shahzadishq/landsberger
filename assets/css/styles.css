@@ -801,7 +801,7 @@ html { scrollbar-color: var(--brand-700) #e7eef3; }
 .why-layout { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 64px); align-items: start; }
 
 /* ----- Stage: the never-finished website ----- */
-.why-stage { position: sticky; top: 120px; padding: 34px 26px 44px 0; }
+.why-stage { position: sticky; top: 120px; padding: 78px 26px 44px 0; }
 .why-browser { background: #fff; border-radius: 16px; border: 1px solid var(--line);
   box-shadow: 0 1px 0 rgba(255,255,255,.8) inset, var(--shadow-lg); overflow: hidden; transform: rotate(-1.5deg);
   transition: transform .6s cubic-bezier(.2,.7,.3,1); }
@@ -847,7 +847,7 @@ html { scrollbar-color: var(--brand-700) #e7eef3; }
 .why-float small { display: block; font-size: .74rem; color: var(--muted); line-height: 1.3; }
 .why-float .ic { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; flex: none; }
 .why-float .ic svg { width: 20px; height: 20px; }
-.why-float--leads { right: 0; top: 0; }
+.why-float--leads { right: 0; top: 4px; }
 .why-float--leads .ic { background: rgba(242,106,44,.12); color: var(--accent); }
 .why-float--leads .ic svg { transform: scaleY(-1); }
 .why-float--rivals { left: -18px; bottom: 0; animation-delay: -3s; }
@@ -917,7 +917,7 @@ html { scrollbar-color: var(--brand-700) #e7eef3; }
 
 @media (max-width: 980px) {
   .why-layout { grid-template-columns: 1fr; }
-  .why-stage { position: relative; top: 0; max-width: 520px; margin-inline: auto; width: 100%; padding: 34px 18px 44px; }
+  .why-stage { position: relative; top: 0; max-width: 520px; margin-inline: auto; width: 100%; padding: 76px 18px 44px; }
   .why-float--rivals { left: 0; }
   .why-banner { grid-template-columns: 1fr; }
   .why-tiles { max-width: 420px; }
