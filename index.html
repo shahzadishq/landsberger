@@ -118,24 +118,42 @@
 
     <div class="why-layout">
       <!-- Left: the "forever almost finished" website -->
-      <div class="why-stage reveal">
-        <div class="why-browser" aria-hidden="true">
-          <div class="why-browser-bar">
-            <span class="why-dots"><i></i><i></i><i></i></span>
-            <span class="why-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>www.ihr-betrieb.de</span>
+      <div class="why-stage why-stage--b reveal">
+        <div class="db-card" aria-hidden="true">
+          <div class="db-head">
+            <div>
+              <span class="db-kicker">Ihre Website</span>
+              <b class="db-url">www.ihr-betrieb.de</b>
+            </div>
+            <span class="db-offline"><i></i>Offline</span>
           </div>
-          <div class="why-browser-body">
-            <div class="why-cone">
-              <svg viewBox="0 0 64 64" fill="none"><path d="M26 8h12l12 44H14L26 8Z" fill="#F26A2C"/><path d="M22.5 22h19l2.5 9h-24l2.5-9ZM18.3 37h27.4l2.4 9H15.9l2.4-9Z" fill="#fff" opacity=".92"/><rect x="8" y="52" width="48" height="6" rx="3" fill="#0d1b26" opacity=".85"/></svg>
+          <div class="db-metrics">
+            <div class="db-metric"><small>Besucher</small><b>0</b></div>
+            <div class="db-metric"><small>Anfragen</small><b>0</b></div>
+            <div class="db-metric"><small>Google-Treffer</small><b>–</b></div>
+          </div>
+          <div class="db-chart">
+            <div class="db-chart-legend">
+              <span><i class="lg-pot"></i>Mit Website möglich</span>
+              <span><i class="lg-now"></i>Heute</span>
             </div>
-            <p class="why-status-title">Hier entsteht bald eine Website</p>
-            <p class="why-status-sub">Status: „Bald fertig“ – seit 14 Monaten</p>
-
-            <div class="why-progress">
-              <div class="why-progress-head"><span>Fortschritt</span><b>37&nbsp;%</b></div>
-              <div class="why-progress-track"><span class="why-progress-fill"></span></div>
-            </div>
-
+            <svg viewBox="0 0 320 130" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="dbArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00CFE8" stop-opacity=".28"/><stop offset="1" stop-color="#00CFE8" stop-opacity="0"/></linearGradient>
+                <linearGradient id="dbLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#168BC8"/><stop offset="1" stop-color="#00CFE8"/></linearGradient>
+              </defs>
+              <g stroke="#e9eff3" stroke-width="1"><path d="M0 32H320M0 64H320M0 96H320"/></g>
+              <path d="M0 118 C40 112 70 104 105 92 S170 70 205 54 S270 24 320 12 V130 H0Z" fill="url(#dbArea)"/>
+              <path d="M0 118 C40 112 70 104 105 92 S170 70 205 54 S270 24 320 12" fill="none" stroke="url(#dbLine)" stroke-width="3" stroke-dasharray="6 6" stroke-linecap="round"/>
+              <path d="M0 124 H320" stroke="#F26A2C" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="320" cy="12" r="5" fill="#00CFE8"/>
+              <circle cx="320" cy="124" r="5" fill="#F26A2C"/>
+            </svg>
+            <div class="db-months"><span>Jan</span><span>Mär</span><span>Mai</span><span>Jul</span><span>Sep</span><span>Nov</span></div>
+          </div>
+          <div class="db-todo">
+            <div class="why-progress-head"><span>Website-Fortschritt</span><b>37&nbsp;%</b></div>
+            <div class="why-progress-track"><span class="why-progress-fill"></span></div>
             <ul class="why-checklist">
               <li class="done"><span class="mk">✓</span>Logo hochgeladen</li>
               <li class="wip"><span class="mk"></span>Texte für die Startseite</li>
@@ -143,13 +161,7 @@
               <li class="todo"><span class="mk">!</span>Domain verbinden</li>
             </ul>
           </div>
-        </div>
-
-        <div class="why-float why-float--leads">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6M21 7h-6" opacity=".35"/></svg></span>
-          <span><b>0 Anfragen</b><small>über die Website diesen Monat</small></span>
-        </div>
-        <div class="why-float why-float--rivals">
+        </div>        <div class="why-float why-float--rivals">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
           <span><b>Ihre Kunden googeln</b><small>… und finden den Wettbewerb</small></span>
         </div>

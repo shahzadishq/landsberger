@@ -802,26 +802,6 @@ html { scrollbar-color: var(--brand-700) #e7eef3; }
 
 /* ----- Stage: the never-finished website ----- */
 .why-stage { position: sticky; top: 120px; padding: 78px 26px 44px 0; }
-.why-browser { background: #fff; border-radius: 16px; border: 1px solid var(--line);
-  box-shadow: 0 1px 0 rgba(255,255,255,.8) inset, var(--shadow-lg); overflow: hidden; transform: rotate(-1.5deg);
-  transition: transform .6s cubic-bezier(.2,.7,.3,1); }
-.why-stage:hover .why-browser { transform: rotate(0deg) translateY(-4px); }
-.why-browser-bar { display: flex; align-items: center; gap: 14px; padding: 12px 16px; background: var(--surface); border-bottom: 1px solid var(--line); }
-.why-dots { display: flex; gap: 6px; }
-.why-dots i { width: 10px; height: 10px; border-radius: 50%; background: #d7e0e7; }
-.why-dots i:first-child { background: #ff8a7a; } .why-dots i:nth-child(2) { background: #ffd06b; } .why-dots i:nth-child(3) { background: #7fdc9a; }
-.why-url { flex: 1; display: flex; align-items: center; gap: 7px; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 12px; font-weight: 500; color: var(--muted); min-width: 0; white-space: nowrap; overflow: hidden; }
-.why-url svg { width: 12px; height: 12px; flex: none; opacity: .6; }
-
-.why-browser-body { padding: 34px 30px 30px; text-align: center;
-  background:
-    repeating-linear-gradient(-45deg, rgba(242,106,44,.05) 0 14px, transparent 14px 28px),
-    linear-gradient(180deg, #fff, #f7fafc); }
-.why-cone { width: 64px; height: 64px; margin: 0 auto 14px; animation: whyWobble 4s ease-in-out infinite; transform-origin: 50% 90%; }
-@keyframes whyWobble { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-5deg); } }
-.why-status-title { font-weight: 700; font-size: 1.12rem; color: var(--ink); letter-spacing: -.01em; }
-.why-status-sub { font-size: .86rem; color: var(--muted); margin-top: 4px; }
-
 .why-progress { margin: 24px 0 20px; text-align: left; }
 .why-progress-head { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 8px; }
 .why-progress-head b { color: var(--accent); font-size: 13px; }
@@ -853,6 +833,32 @@ html { scrollbar-color: var(--brand-700) #e7eef3; }
 .why-float--rivals { left: -18px; bottom: 0; animation-delay: -3s; }
 .why-float--rivals .ic { background: var(--grad-brand); color: #fff; }
 @keyframes whyFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* ----- Stage: website status dashboard ----- */
+.why-stage--b { padding: 20px 26px 70px 0; }
+.why-stage--b .why-float--rivals { bottom: 6px; }
+/* ---- Option B: dashboard ---- */
+.db-card { background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-lg); padding: 22px 22px 22px; }
+.db-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.db-kicker { display: block; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.db-url { display: block; font-size: 1.02rem; color: var(--ink); margin-top: 2px; }
+.db-offline { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 700; color: #d63b2f; background: rgba(214,59,47,.09); border-radius: 999px; padding: 6px 11px; }
+.db-offline i { width: 7px; height: 7px; border-radius: 50%; background: #e2483c; box-shadow: 0 0 0 4px rgba(226,72,60,.18); animation: dbBlink 1.6s ease-in-out infinite; }
+@keyframes dbBlink { 50% { opacity: .35; } }
+.db-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0; }
+.db-metric { background: var(--surface); border-radius: 12px; padding: 10px 12px; }
+.db-metric small { display: block; font-size: 10.5px; font-weight: 600; color: var(--muted); }
+.db-metric b { display: block; font-size: 1.5rem; line-height: 1.2; color: var(--ink); }
+.db-chart { border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px 10px; }
+.db-chart-legend { display: flex; gap: 16px; font-size: 11px; font-weight: 600; color: var(--ink-soft); margin-bottom: 8px; }
+.db-chart-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.db-chart-legend i { width: 14px; height: 3px; border-radius: 3px; }
+.lg-pot { background: var(--grad-brand); } .lg-now { background: var(--accent); }
+.db-chart svg { width: 100%; height: 120px; }
+.db-months { display: flex; justify-content: space-between; font-size: 10px; font-weight: 600; color: #9aabb8; margin-top: 4px; }
+.db-todo { margin-top: 16px; }
+.db-todo .why-progress-track { margin-bottom: 14px; }
+.why-stage--b .why-float--leads { right: -6px; }
 
 /* ----- Reason cards ----- */
 .why-list { display: grid; gap: 20px; counter-reset: none; }
@@ -919,11 +925,13 @@ html { scrollbar-color: var(--brand-700) #e7eef3; }
   .why-layout { grid-template-columns: 1fr; }
   .why-stage { position: relative; top: 0; max-width: 520px; margin-inline: auto; width: 100%; padding: 76px 18px 44px; }
   .why-float--rivals { left: 0; }
+  .why-stage--b { padding: 20px 18px 70px; }
   .why-banner { grid-template-columns: 1fr; }
   .why-tiles { max-width: 420px; }
 }
 @media (max-width: 620px) {
-  .why-browser-body { padding: 26px 18px 22px; }
+  .db-card { padding: 18px 16px; }
+  .db-metric b { font-size: 1.25rem; }
   .why-float { padding: 10px 12px; }
   .why-float small { font-size: .7rem; }
   .why-card { padding: 26px 22px 22px; }
@@ -933,7 +941,7 @@ html { scrollbar-color: var(--brand-700) #e7eef3; }
   .why-banner .btn { width: 100%; justify-content: center; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .why-cone, .why-float, .why-tile--you, .why-checklist .wip .mk, .why-progress-fill::after { animation: none; }
+  .db-offline i, .why-float, .why-tile--you, .why-checklist .wip .mk, .why-progress-fill::after { animation: none; }
   .why-progress-fill { transition: none; width: 37%; }
 }
 
