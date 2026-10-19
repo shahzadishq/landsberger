@@ -161,6 +161,7 @@ html { scrollbar-color: var(--brand-700) #e7eef3; }
 .section-head p { color: var(--muted); font-size: 1.07rem; }
 .bg-navy .section-head p { color: #a9c6dc; }
 .highlight { color: var(--brand-700); position: relative; white-space: nowrap;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone; overflow-wrap: break-word;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 24' preserveAspectRatio='none'%3E%3Cpath d='M5 15 C60 7 110 8 150 12 S250 19 295 9' fill='none' stroke='%2300CFE8' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat; background-position: 0 100%; background-size: 100% .34em; padding-bottom: .08em; }
 .bg-blue .section-head .highlight { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 24' preserveAspectRatio='none'%3E%3Cpath d='M5 15 C60 7 110 8 150 12 S250 19 295 9' fill='none' stroke='%23ffffff' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E"); }
@@ -1176,6 +1177,10 @@ html { scrollbar-color: var(--brand-700) #e7eef3; }
   .hero-grid { min-height: auto; padding-top: clamp(94px, 15vh, 118px); gap: 30px; }
   .hero-visual { order: 1; align-self: center; max-width: 440px; margin-inline: auto; } /* heading first, image below */
   .hero .btn-row { flex-wrap: wrap; }
+  /* let highlighted phrases and buttons wrap instead of overflowing on tablet/mobile */
+  .highlight, .hero h1 .highlight, .section-head .highlight { white-space: normal; }
+  .btn { white-space: normal; text-align: center; max-width: 100%; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
   .method-grid, .service-grid, .work-grid, .tgrid, .bonus-grid, .steps-3 { grid-template-columns: repeat(2, 1fr); }
   .compare { grid-template-columns: 1fr; }
   .stats-strip { grid-template-columns: repeat(2,1fr); }
@@ -1201,12 +1206,17 @@ html { scrollbar-color: var(--brand-700) #e7eef3; }
 }
 @media (max-width: 620px) {
   .method-grid, .service-grid, .work-grid, .tgrid, .bonus-grid, .steps-3, .field-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 30px; }
   .trust-badges { grid-template-columns: repeat(2, 1fr); }
   .marquee .tcard { width: 278px; }
   body { font-size: 16px; }
   .hero-badge.tl { left: 6px; font-size: .82rem; }
   .hero-portrait-rating, .hero-badge.br { display: none; }
   .brand-logo, .site-header.scrolled .brand-logo { height: 30px; }
+  /* big CTA buttons go full-width so long labels never spill out of the box */
+  .btn--lg { width: 100%; justify-content: center; padding: 15px 20px; font-size: 13.5px; line-height: 1.35; }
+  .btn-row { width: 100%; }
+  .hero .btn-row .link-phone { white-space: normal; }
 }
 
 @media (prefers-reduced-motion: reduce) {
