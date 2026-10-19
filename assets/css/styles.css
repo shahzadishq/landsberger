@@ -107,6 +107,9 @@ html { scrollbar-color: var(--brand-700) #e7eef3; }
 .bg-white::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background: url("../img/patterns/box-shape.png") bottom center / contain no-repeat; opacity: .06; }
 .bg-white > .container { position: relative; z-index: 1; }
+/* opt specific sections out of the background pattern */
+.bg-white.no-pattern::before { display: none; }
+.bg-blue.no-pattern { background: var(--grad-blue); }
 .bg-soft   { background: var(--grad-soft); }
 .bg-navy   { background: var(--grain), var(--grad-navy); color: #dbeefc; }
 .bg-navy h1, .bg-navy h2, .bg-navy h3, .bg-navy h4 { color: #fff; }
