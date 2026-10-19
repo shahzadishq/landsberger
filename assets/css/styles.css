@@ -1210,8 +1210,8 @@ html { scrollbar-color: var(--brand-700) #e7eef3; }
   .trust-badges { grid-template-columns: repeat(2, 1fr); }
   .marquee .tcard { width: 278px; }
   body { font-size: 16px; }
-  .hero-badge.tl { left: 6px; font-size: .82rem; }
-  .hero-portrait-rating, .hero-badge.br { display: none; }
+  /* hide floating badges on mobile so they don't cover the founder's face */
+  .hero-portrait-rating, .hero-badge.br, .hero-badge.tl { display: none; }
   .brand-logo, .site-header.scrolled .brand-logo { height: 30px; }
   /* big CTA buttons go full-width so long labels never spill out of the box */
   .btn--lg { width: 100%; justify-content: center; padding: 15px 20px; font-size: 13.5px; line-height: 1.35; }
