@@ -869,7 +869,7 @@ html { scrollbar-color: var(--brand-700) #e7eef3; }
 .why-stage--b .why-float--leads { right: -6px; }
 
 /* ----- Reason cards ----- */
-.why-list { display: grid; gap: 20px; counter-reset: none; }
+.why-list { display: grid; gap: 20px; counter-reset: none; padding: 0; list-style: none; }
 .why-card { position: relative; background: #fff; border-radius: 18px; padding: 30px 32px 26px; isolation: isolate; overflow: hidden;
   border: 1px solid var(--line); box-shadow: var(--shadow-sm);
   transition: transform .45s cubic-bezier(.2,.7,.3,1), box-shadow .45s, border-color .45s; }
