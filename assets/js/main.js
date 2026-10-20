@@ -15,12 +15,17 @@
   /* ---------- Sticky header shadow ---------- */
   var header = document.getElementById("header");
   var toTop = document.getElementById("toTop");
+  var progress = document.getElementById("scrollProgress");
   function onScroll() {
     var y = window.scrollY || window.pageYOffset;
     // Solidify the header as soon as the user starts scrolling, so the nav
     // never overlaps the hero text without a background behind it.
     if (header) header.classList.toggle("scrolled", y > 24);
     if (toTop) toTop.classList.toggle("show", y > 600);
+    if (progress) {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
+    }
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
